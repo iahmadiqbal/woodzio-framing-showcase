@@ -55,8 +55,8 @@ const Testimonials = () => {
       <section className="relative py-32 overflow-hidden">
         <div className="absolute inset-0">
           <img 
-            src="https://images.unsplash.com/photo-1611048267451-e6ed903d4a38?w=1920&q=80" 
-            alt="Wood texture background" 
+            src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1920&q=80" 
+            alt="Modern building construction" 
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-br from-brown-deep/90 via-background/85 to-wood-dark/90" />
@@ -145,7 +145,7 @@ const Testimonials = () => {
           <SectionHeading title="See What Our Clients Say" subtitle="Real stories from real people" />
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12 max-w-5xl mx-auto">
             {[
-              "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=800&q=80",
+              "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80",
               "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=800&q=80",
             ].map((img, i) => (
               <motion.div

@@ -20,8 +20,8 @@ const Contact = () => {
       <section className="relative py-32 overflow-hidden">
         <div className="absolute inset-0">
           <img 
-            src="https://images.unsplash.com/photo-1611048267451-e6ed903d4a38?w=1920&q=80" 
-            alt="Wood texture background" 
+            src="https://images.unsplash.com/photo-1423666639041-f56000c27a9a?w=1920&q=80" 
+            alt="Contact construction team" 
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-br from-brown-deep/90 via-background/85 to-wood-dark/90" />
@@ -211,25 +211,41 @@ const Contact = () => {
       <section className="section-medium py-20">
         <div className="container mx-auto px-4">
           <SectionHeading title="Why Reach Out?" subtitle="Here's what you can expect when you contact us" />
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
-            {[
-              { icon: HiChatAlt, title: "Quick Response", desc: "We respond to all inquiries within 24 hours" },
-              { icon: HiQuestionMarkCircle, title: "Expert Advice", desc: "Get professional guidance on your framing needs" },
-              { icon: HiClock, title: "Free Consultation", desc: "No-obligation discussion about your project" },
-            ].map((item, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className="bg-card border border-border rounded-lg p-8 text-center"
-              >
-                <item.icon className="text-5xl text-accent mx-auto mb-4" />
-                <h4 className="font-heading text-xl font-semibold text-foreground mb-3">{item.title}</h4>
-                <p className="text-muted-foreground leading-relaxed">{item.desc}</p>
-              </motion.div>
-            ))}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-12">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              className="relative h-80 rounded-lg overflow-hidden"
+            >
+              <img 
+                src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=800&q=80" 
+                alt="Professional consultation" 
+                className="w-full h-full object-cover"
+              />
+            </motion.div>
+            <div className="grid grid-cols-1 gap-6">
+              {[
+                { icon: HiChatAlt, title: "Quick Response", desc: "We respond to all inquiries within 24 hours" },
+                { icon: HiQuestionMarkCircle, title: "Expert Advice", desc: "Get professional guidance on your framing needs" },
+                { icon: HiClock, title: "Free Consultation", desc: "No-obligation discussion about your project" },
+              ].map((item, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, x: 20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.1 }}
+                  className="bg-card border border-border rounded-lg p-6 flex items-start gap-4"
+                >
+                  <item.icon className="text-4xl text-accent flex-shrink-0" />
+                  <div>
+                    <h4 className="font-heading text-lg font-semibold text-foreground mb-2">{item.title}</h4>
+                    <p className="text-muted-foreground text-sm leading-relaxed">{item.desc}</p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
           </div>
         </div>
       </section>

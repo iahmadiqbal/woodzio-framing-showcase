@@ -9,7 +9,7 @@ const services = [
     title: "Residential Framing",
     desc: "From single-family homes to duplexes, we deliver precise residential wood framing that meets all building codes and exceeds expectations. Our experienced crews ensure structural integrity and timely completion.",
     features: ["Single-family homes", "Duplexes", "Garage framing", "Basement framing"],
-    image: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=800&q=80",
+    image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80",
   },
   {
     icon: HiOfficeBuilding,
@@ -23,21 +23,21 @@ const services = [
     title: "Custom Home Framing",
     desc: "Specializing in bespoke framing for architecturally unique homes. We work closely with architects and builders to bring custom designs to life with precision craftsmanship.",
     features: ["Architectural designs", "Luxury homes", "Complex rooflines", "Vaulted ceilings"],
-    image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80",
+    image: "https://images.unsplash.com/photo-1513467535987-fd81bc7d62f8?w=800&q=80",
   },
   {
     icon: HiCube,
     title: "Townhouse Framing",
     desc: "Efficient and code-compliant framing for townhouse developments. Our team manages multi-unit townhouse projects with consistent quality across every unit.",
     features: ["Row housing", "Stacked townhouses", "Party walls", "Fire separations"],
-    image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=80",
+    image: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=800&q=80",
   },
   {
     icon: HiCollection,
     title: "Multi-Unit Developments",
     desc: "Large-scale framing for apartment complexes and multi-unit residential buildings. We have the capacity, experience, and workforce to handle the biggest projects in Alberta.",
     features: ["Apartment complexes", "Condominiums", "Student housing", "Senior living"],
-    image: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800&q=80",
+    image: "https://images.unsplash.com/photo-1632778149955-e80f8ceca2e8?w=800&q=80",
   },
 ];
 
@@ -48,8 +48,8 @@ const Services = () => {
       <section className="relative py-32 overflow-hidden">
         <div className="absolute inset-0">
           <img 
-            src="https://images.unsplash.com/photo-1611048267451-e6ed903d4a38?w=1920&q=80" 
-            alt="Wood texture background" 
+            src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=1920&q=80" 
+            alt="Residential framing services" 
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-br from-brown-deep/90 via-background/85 to-wood-dark/90" />

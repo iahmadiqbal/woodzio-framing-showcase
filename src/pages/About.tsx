@@ -17,8 +17,8 @@ const About = () => {
       <section className="relative py-32 overflow-hidden">
         <div className="absolute inset-0">
           <img 
-            src="https://images.unsplash.com/photo-1611048267451-e6ed903d4a38?w=1920&q=80" 
-            alt="Wood texture background" 
+            src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=1920&q=80" 
+            alt="Commercial building construction" 
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-br from-brown-deep/90 via-background/85 to-wood-dark/90" />
@@ -49,7 +49,7 @@ const About = () => {
             >
               <img 
                 src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80" 
-                alt="Construction site" 
+                alt="Construction team working on site" 
                 className="rounded-lg shadow-2xl"
               />
             </motion.div>
@@ -77,18 +77,31 @@ const About = () => {
       {/* Mission */}
       <section className="section-medium py-20">
         <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="text-center"
+              className="text-center lg:text-left"
             >
-              <HiLightBulb className="text-6xl text-primary mx-auto mb-6" />
+              <HiLightBulb className="text-6xl text-primary mx-auto lg:mx-0 mb-6" />
               <h3 className="font-heading text-3xl font-bold text-accent mb-6">Our Mission</h3>
               <p className="text-lg text-foreground leading-relaxed">
                 To provide exceptional wood framing services that exceed industry standards, delivered on time and within budget, while building lasting relationships with our clients, partners, and community.
               </p>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+              className="relative h-96 rounded-lg overflow-hidden"
+            >
+              <img 
+                src="https://images.unsplash.com/photo-1632778149955-e80f8ceca2e8?w=800&q=80" 
+                alt="Quality wood framing work" 
+                className="w-full h-full object-cover"
+              />
             </motion.div>
           </div>
         </div>
@@ -121,6 +134,33 @@ const About = () => {
       <section className="section-medium py-20">
         <div className="container mx-auto px-4">
           <SectionHeading title="Our Team" subtitle="Skilled professionals dedicated to excellence" />
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              className="relative h-80 rounded-lg overflow-hidden"
+            >
+              <img 
+                src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=800&q=80" 
+                alt="Construction team at work" 
+                className="w-full h-full object-cover"
+              />
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 }}
+              className="relative h-80 rounded-lg overflow-hidden"
+            >
+              <img 
+                src="https://images.unsplash.com/photo-1590496793907-4d0b8e5d1d8c?w=800&q=80" 
+                alt="Professional framing crew" 
+                className="w-full h-full object-cover"
+              />
+            </motion.div>
+          </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
             {[
               { icon: HiAcademicCap, title: "Expert Training", desc: "Continuous education and certification programs for our crew members" },
