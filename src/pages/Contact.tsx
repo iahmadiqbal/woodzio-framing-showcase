@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { HiPhone, HiMail, HiLocationMarker } from "react-icons/hi";
+import { HiPhone, HiMail, HiLocationMarker, HiClock, HiQuestionMarkCircle, HiChatAlt } from "react-icons/hi";
 import SectionHeading from "@/components/SectionHeading";
 import { useToast } from "@/hooks/use-toast";
 
@@ -16,12 +16,27 @@ const Contact = () => {
 
   return (
     <div className="pt-20">
-      <section className="wood-gradient py-20">
-        <div className="container mx-auto px-4">
-          <SectionHeading
-            title="Contact Us"
-            subtitle="Ready to start your project? Reach out for a free consultation and quote."
+      {/* Hero */}
+      <section className="relative py-32 overflow-hidden">
+        <div className="absolute inset-0">
+          <img 
+            src="https://images.unsplash.com/photo-1611048267451-e6ed903d4a38?w=1920&q=80" 
+            alt="Wood texture background" 
+            className="w-full h-full object-cover"
           />
+          <div className="absolute inset-0 bg-gradient-to-br from-brown-deep/90 via-background/85 to-wood-dark/90" />
+        </div>
+        <div className="container mx-auto px-4 relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <SectionHeading
+              title="Contact Us"
+              subtitle="Ready to start your project? Reach out for a free consultation and quote."
+            />
+          </motion.div>
         </div>
       </section>
 
@@ -135,21 +150,86 @@ const Contact = () => {
       {/* CTA */}
       <section className="py-20 bg-primary">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="font-heading text-3xl md:text-5xl uppercase tracking-wide text-primary-foreground">
-            Let's Build Something Great
-          </h2>
-          <p className="mt-4 text-primary-foreground/80 text-lg">
-            Call us now or fill out the form above to get started.
-          </p>
-          <div className="mt-8">
-            <motion.a
-              href="tel:+12363800621"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.97 }}
-              className="bg-secondary text-secondary-foreground px-8 py-3 rounded font-heading uppercase tracking-wider text-sm inline-block"
-            >
-              Call +1 236-380-0621
-            </motion.a>
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="font-heading text-3xl md:text-5xl font-bold text-primary-foreground">
+              Let's Build Something Great
+            </h2>
+            <p className="mt-4 text-primary-foreground/80 text-lg">
+              Call us now or fill out the form above to get started.
+            </p>
+            <div className="mt-8">
+              <motion.a
+                href="tel:+12363800621"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.97 }}
+                className="bg-secondary text-secondary-foreground px-8 py-3 rounded font-heading text-sm inline-block font-semibold"
+              >
+                Call +1 236-380-0621
+              </motion.a>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="section-dark py-20">
+        <div className="container mx-auto px-4">
+          <SectionHeading title="Frequently Asked Questions" subtitle="Quick answers to common questions" />
+          <div className="max-w-3xl mx-auto mt-12 space-y-6">
+            {[
+              { q: "How long does a typical framing project take?", a: "Timeline varies by project size, but most residential homes take 1-3 weeks to frame." },
+              { q: "Do you provide free estimates?", a: "Yes! We offer free, no-obligation consultations and detailed quotes for all projects." },
+              { q: "Are you licensed and insured?", a: "Absolutely. We're fully licensed, bonded, and insured for your complete peace of mind." },
+              { q: "What areas do you serve?", a: "We serve Calgary, Banff, Canmore, and surrounding areas across Alberta." },
+            ].map((faq, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+                className="bg-card border border-border rounded-lg p-6"
+              >
+                <div className="flex items-start gap-4">
+                  <HiQuestionMarkCircle className="text-2xl text-primary flex-shrink-0 mt-1" />
+                  <div>
+                    <h4 className="font-heading text-lg font-semibold text-foreground mb-2">{faq.q}</h4>
+                    <p className="text-muted-foreground leading-relaxed">{faq.a}</p>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Why Contact Us */}
+      <section className="section-medium py-20">
+        <div className="container mx-auto px-4">
+          <SectionHeading title="Why Reach Out?" subtitle="Here's what you can expect when you contact us" />
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+            {[
+              { icon: HiChatAlt, title: "Quick Response", desc: "We respond to all inquiries within 24 hours" },
+              { icon: HiQuestionMarkCircle, title: "Expert Advice", desc: "Get professional guidance on your framing needs" },
+              { icon: HiClock, title: "Free Consultation", desc: "No-obligation discussion about your project" },
+            ].map((item, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+                className="bg-card border border-border rounded-lg p-8 text-center"
+              >
+                <item.icon className="text-5xl text-accent mx-auto mb-4" />
+                <h4 className="font-heading text-xl font-semibold text-foreground mb-3">{item.title}</h4>
+                <p className="text-muted-foreground leading-relaxed">{item.desc}</p>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>

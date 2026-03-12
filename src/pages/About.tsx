@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { HiShieldCheck, HiClock, HiUserGroup, HiStar } from "react-icons/hi";
+import { HiShieldCheck, HiClock, HiUserGroup, HiStar, HiTrendingUp, HiAcademicCap, HiHeart, HiLightBulb } from "react-icons/hi";
 import SectionHeading from "@/components/SectionHeading";
 import CTAButton from "@/components/CTAButton";
 
@@ -14,25 +14,52 @@ const About = () => {
   return (
     <div className="pt-20">
       {/* Hero */}
-      <section className="wood-gradient py-20">
-        <div className="container mx-auto px-4">
-          <SectionHeading
-            title="About Woodzio Framing"
-            subtitle="Your trusted partner for professional wood framing solutions in Alberta since day one."
+      <section className="relative py-32 overflow-hidden">
+        <div className="absolute inset-0">
+          <img 
+            src="https://images.unsplash.com/photo-1611048267451-e6ed903d4a38?w=1920&q=80" 
+            alt="Wood texture background" 
+            className="w-full h-full object-cover"
           />
+          <div className="absolute inset-0 bg-gradient-to-br from-brown-deep/90 via-background/85 to-wood-dark/90" />
+        </div>
+        <div className="container mx-auto px-4 relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <SectionHeading
+              title="About Woodzio Framing"
+              subtitle="Your trusted partner for professional wood framing solutions in Alberta since day one."
+            />
+          </motion.div>
         </div>
       </section>
 
       {/* Story */}
       <section className="section-dark py-20">
         <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
             >
-              <h3 className="font-heading text-2xl uppercase text-accent mb-4">Our Story</h3>
+              <img 
+                src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80" 
+                alt="Construction site" 
+                className="rounded-lg shadow-2xl"
+              />
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <h3 className="font-heading text-3xl font-bold text-accent mb-6">Our Story</h3>
               <p className="text-foreground leading-relaxed mb-4">
                 Woodzio Framing Inc. was founded with a simple mission: to deliver the highest quality wood framing services in Alberta. Starting from humble beginnings, we've grown into one of the most trusted framing companies in the Calgary and Banff regions.
               </p>
@@ -49,36 +76,94 @@ const About = () => {
 
       {/* Mission */}
       <section className="section-medium py-20">
-        <div className="container mx-auto px-4 text-center">
-          <SectionHeading title="Our Mission" />
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="max-w-2xl mx-auto text-lg text-foreground leading-relaxed"
-          >
-            To provide exceptional wood framing services that exceed industry standards, delivered on time and within budget, while building lasting relationships with our clients, partners, and community.
-          </motion.p>
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-center"
+            >
+              <HiLightBulb className="text-6xl text-primary mx-auto mb-6" />
+              <h3 className="font-heading text-3xl font-bold text-accent mb-6">Our Mission</h3>
+              <p className="text-lg text-foreground leading-relaxed">
+                To provide exceptional wood framing services that exceed industry standards, delivered on time and within budget, while building lasting relationships with our clients, partners, and community.
+              </p>
+            </motion.div>
+          </div>
         </div>
       </section>
 
       {/* Values */}
       <section className="section-dark py-20">
         <div className="container mx-auto px-4">
-          <SectionHeading title="Our Values" />
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <SectionHeading title="Our Core Values" subtitle="The principles that guide everything we do" />
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
             {values.map((v, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1, duration: 0.5 }}
+                className="bg-card border border-border rounded-lg p-6 text-center hover:border-primary/50 transition-all group"
+              >
+                <v.icon className="text-4xl text-primary mx-auto mb-4 group-hover:scale-110 transition-transform" />
+                <h4 className="font-heading text-lg font-semibold text-accent mb-2">{v.title}</h4>
+                <p className="text-muted-foreground text-sm leading-relaxed">{v.desc}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Team Excellence */}
+      <section className="section-medium py-20">
+        <div className="container mx-auto px-4">
+          <SectionHeading title="Our Team" subtitle="Skilled professionals dedicated to excellence" />
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+            {[
+              { icon: HiAcademicCap, title: "Expert Training", desc: "Continuous education and certification programs for our crew members" },
+              { icon: HiTrendingUp, title: "Years of Experience", desc: "Decades of combined expertise in residential and commercial framing" },
+              { icon: HiHeart, title: "Passion for Quality", desc: "Every team member takes pride in delivering exceptional craftsmanship" },
+            ].map((item, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.15, duration: 0.5 }}
+                className="bg-card border border-border rounded-lg p-8 text-center"
+              >
+                <item.icon className="text-5xl text-accent mx-auto mb-4" />
+                <h4 className="font-heading text-xl font-semibold text-foreground mb-3">{item.title}</h4>
+                <p className="text-muted-foreground leading-relaxed">{item.desc}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Stats Section */}
+      <section className="section-dark py-20">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            {[
+              { num: "500+", label: "Projects Completed" },
+              { num: "15+", label: "Years Experience" },
+              { num: "100%", label: "Client Satisfaction" },
+              { num: "50+", label: "Team Members" },
+            ].map((stat, i) => (
               <motion.div
                 key={i}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="bg-card border border-border rounded-lg p-6 text-center"
+                className="text-center"
               >
-                <v.icon className="text-3xl text-primary mx-auto mb-3" />
-                <h4 className="font-heading text-lg uppercase text-accent">{v.title}</h4>
-                <p className="text-muted-foreground text-sm mt-2">{v.desc}</p>
+                <div className="font-heading text-5xl font-bold text-primary mb-2">{stat.num}</div>
+                <div className="text-muted-foreground text-sm font-medium">{stat.label}</div>
               </motion.div>
             ))}
           </div>
@@ -88,15 +173,21 @@ const About = () => {
       {/* CTA */}
       <section className="py-20 bg-primary">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="font-heading text-3xl md:text-5xl uppercase tracking-wide text-primary-foreground">
-            Let's Build Together
-          </h2>
-          <p className="mt-4 text-primary-foreground/80 text-lg">
-            Ready to discuss your next project? Reach out today.
-          </p>
-          <div className="mt-8">
-            <CTAButton text="Contact Us" to="/contact" variant="secondary" />
-          </div>
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="font-heading text-3xl md:text-5xl font-bold text-primary-foreground">
+              Let's Build Together
+            </h2>
+            <p className="mt-4 text-primary-foreground/80 text-lg">
+              Ready to discuss your next project? Reach out today.
+            </p>
+            <div className="mt-8">
+              <CTAButton text="Contact Us" to="/contact" variant="secondary" />
+            </div>
+          </motion.div>
         </div>
       </section>
     </div>

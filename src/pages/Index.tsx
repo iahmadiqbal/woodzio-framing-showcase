@@ -1,8 +1,7 @@
 import { motion } from "framer-motion";
-import { HiHome, HiOfficeBuilding, HiTemplate, HiCube, HiCollection } from "react-icons/hi";
+import { HiHome, HiOfficeBuilding, HiTemplate, HiCube, HiCollection, HiCheckCircle, HiLightningBolt, HiShieldCheck } from "react-icons/hi";
 import SectionHeading from "@/components/SectionHeading";
 import CTAButton from "@/components/CTAButton";
-import logo from "@/assets/logo.jpg";
 
 const services = [
   { icon: HiHome, title: "Residential Framing", desc: "Expert framing for single-family homes with precision and quality craftsmanship." },
@@ -22,22 +21,22 @@ const Index = () => {
   return (
     <div className="pt-20">
       {/* Hero */}
-      <section className="relative min-h-[90vh] flex items-center wood-gradient wood-texture overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-brown-deep/80 via-background/60 to-wood-dark/70" />
+      <section className="relative min-h-[90vh] flex items-center overflow-hidden">
+        <div className="absolute inset-0">
+          <img 
+            src="https://images.unsplash.com/photo-1611048267451-e6ed903d4a38?w=1920&q=80" 
+            alt="Wood texture background" 
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-br from-brown-deep/90 via-background/80 to-wood-dark/85" />
+        </div>
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-3xl">
-            <motion.div
-              initial={{ opacity: 0, y: 40 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-            >
-              <img src={logo} alt="Woodzio Framing" className="h-28 w-auto mb-8" />
-            </motion.div>
             <motion.h1
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="font-heading text-4xl md:text-6xl lg:text-7xl uppercase tracking-wide text-foreground leading-tight"
+              transition={{ duration: 0.8 }}
+              className="font-heading text-4xl md:text-6xl lg:text-7xl font-bold text-foreground leading-tight"
             >
               Building Alberta's <br />
               <span className="text-primary">Future Frame</span> by Frame
@@ -45,7 +44,7 @@ const Index = () => {
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
               className="mt-6 text-lg md:text-xl text-tan max-w-xl leading-relaxed"
             >
               Professional wood framing for residential and commercial projects in Calgary, Banff, and across Alberta.
@@ -53,7 +52,7 @@ const Index = () => {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.6 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
               className="mt-8 flex gap-4 flex-wrap"
             >
               <CTAButton text="Get a Free Quote" to="/contact" />
@@ -151,7 +150,7 @@ const Index = () => {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
           >
-            <h2 className="font-heading text-3xl md:text-5xl uppercase tracking-wide text-primary-foreground">
+            <h2 className="font-heading text-3xl md:text-5xl font-bold text-primary-foreground">
               Ready to Start Your Project?
             </h2>
             <p className="mt-4 text-primary-foreground/80 text-lg max-w-xl mx-auto">
@@ -161,6 +160,87 @@ const Index = () => {
               <CTAButton text="Schedule a Consultation" to="/contact" variant="secondary" />
             </div>
           </motion.div>
+        </div>
+      </section>
+
+      {/* Why Choose Us */}
+      <section className="section-medium py-20">
+        <div className="container mx-auto px-4">
+          <SectionHeading title="Why Choose Woodzio Framing" subtitle="Experience the difference of working with Alberta's trusted framing experts" />
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+            {[
+              { icon: HiCheckCircle, title: "Quality Craftsmanship", desc: "Every frame built to perfection with attention to detail and precision" },
+              { icon: HiLightningBolt, title: "Fast & Efficient", desc: "On-time project completion without compromising on quality" },
+              { icon: HiShieldCheck, title: "Licensed & Insured", desc: "Fully certified professionals you can trust with your investment" },
+            ].map((item, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.15, duration: 0.6 }}
+                className="bg-card p-8 rounded-lg border border-border hover:border-primary/50 transition-all group"
+              >
+                <item.icon className="text-5xl text-primary mb-4 group-hover:scale-110 transition-transform" />
+                <h3 className="font-heading text-xl font-semibold text-foreground mb-3">{item.title}</h3>
+                <p className="text-muted-foreground leading-relaxed">{item.desc}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Process Section */}
+      <section className="section-dark py-20">
+        <div className="container mx-auto px-4">
+          <SectionHeading title="Our Process" subtitle="From consultation to completion, we make framing simple" />
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mt-12">
+            {[
+              { num: "01", title: "Consultation", desc: "We discuss your project needs and provide expert advice" },
+              { num: "02", title: "Planning", desc: "Detailed planning and material estimation for your project" },
+              { num: "03", title: "Execution", desc: "Our skilled crew brings your vision to life with precision" },
+              { num: "04", title: "Completion", desc: "Final inspection and handover of your perfectly framed structure" },
+            ].map((step, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1, duration: 0.5 }}
+                className="relative"
+              >
+                <div className="text-6xl font-bold text-primary/20 mb-4">{step.num}</div>
+                <h3 className="font-heading text-xl font-semibold text-accent mb-2">{step.title}</h3>
+                <p className="text-muted-foreground text-sm leading-relaxed">{step.desc}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Gallery Preview */}
+      <section className="section-medium py-20">
+        <div className="container mx-auto px-4">
+          <SectionHeading title="Recent Projects" subtitle="See the quality of our work across Alberta" />
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
+            {[
+              "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=800&q=80",
+              "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=800&q=80",
+              "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80",
+            ].map((img, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1, duration: 0.5 }}
+                className="relative h-64 rounded-lg overflow-hidden group cursor-pointer"
+              >
+                <img src={img} alt={`Project ${i + 1}`} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
     </div>
