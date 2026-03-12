@@ -2,7 +2,6 @@ import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { HiMenu, HiX } from "react-icons/hi";
-import logo from "@/assets/logo.jpg";
 
 const navLinks = [
   { name: "Home", path: "/" },
@@ -20,7 +19,7 @@ const Navbar = () => {
     <nav className="fixed top-0 left-0 right-0 z-50 bg-brown-deep/95 backdrop-blur-sm border-b border-border">
       <div className="container mx-auto px-4 flex items-center justify-between h-20">
         <Link to="/" className="flex items-center gap-3">
-          <img src={logo} alt="Woodzio Framing Inc" className="h-14 w-auto" />
+          <img src="/headerlogo.png" alt="Woodzio Framing Inc" className="h-14 w-auto" />
         </Link>
 
         {/* Desktop */}
