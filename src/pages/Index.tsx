@@ -219,8 +219,8 @@ const Index = () => {
                   </CarouselItem>
                 ))}
               </CarouselContent>
-              <CarouselPrevious className="left-0 -translate-x-12" />
-              <CarouselNext className="right-0 translate-x-12" />
+              <CarouselPrevious className="left-0 -translate-x-4 md:-translate-x-12" />
+              <CarouselNext className="right-0 translate-x-4 md:translate-x-12" />
             </Carousel>
           </motion.div>
         </div>
