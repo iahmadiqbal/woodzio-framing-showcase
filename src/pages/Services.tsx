@@ -1,10 +1,13 @@
 import { motion } from "framer-motion";
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import { HiHome, HiOfficeBuilding, HiTemplate, HiCube, HiCollection, HiCheckCircle, HiClock, HiShieldCheck, HiTrendingUp } from "react-icons/hi";
 import SectionHeading from "@/components/SectionHeading";
 import CTAButton from "@/components/CTAButton";
 
 const services = [
   {
+    id: "residential-framing",
     icon: HiHome,
     title: "Residential Framing",
     desc: "From single-family homes to duplexes, we deliver precise residential wood framing that meets all building codes and exceeds expectations. Our experienced crews ensure structural integrity and timely completion.",
@@ -12,27 +15,31 @@ const services = [
     image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80",
   },
   {
+    id: "commercial-framing",
     icon: HiOfficeBuilding,
-    title: "Light Commercial Framing",
+    title: "Commercial Framing",
     desc: "Professional framing services for commercial buildings, retail spaces, and mixed-use developments. We handle complex commercial projects with the same attention to detail as our residential work.",
     features: ["Office buildings", "Retail spaces", "Mixed-use", "Warehouses"],
     image: "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=800&q=80",
   },
   {
+    id: "custom-homes",
     icon: HiTemplate,
-    title: "Custom Home Framing",
+    title: "Custom Homes",
     desc: "Specializing in bespoke framing for architecturally unique homes. We work closely with architects and builders to bring custom designs to life with precision craftsmanship.",
     features: ["Architectural designs", "Luxury homes", "Complex rooflines", "Vaulted ceilings"],
     image: "https://images.unsplash.com/photo-1513467535987-fd81bc7d62f8?w=800&q=80",
   },
   {
+    id: "townhouses",
     icon: HiCube,
-    title: "Townhouse Framing",
+    title: "Townhouses",
     desc: "Efficient and code-compliant framing for townhouse developments. Our team manages multi-unit townhouse projects with consistent quality across every unit.",
     features: ["Row housing", "Stacked townhouses", "Party walls", "Fire separations"],
     image: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=800&q=80",
   },
   {
+    id: "multi-unit-developments",
     icon: HiCollection,
     title: "Multi-Unit Developments",
     desc: "Large-scale framing for apartment complexes and multi-unit residential buildings. We have the capacity, experience, and workforce to handle the biggest projects in Alberta.",
@@ -42,6 +49,20 @@ const services = [
 ];
 
 const Services = () => {
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.hash) {
+      const id = location.hash.replace('#', '');
+      const element = document.getElementById(id);
+      if (element) {
+        setTimeout(() => {
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 100);
+      }
+    }
+  }, [location]);
+
   return (
     <div className="pt-20">
       {/* Hero */}
@@ -74,13 +95,14 @@ const Services = () => {
           {services.map((s, i) => (
             <motion.div
               key={i}
+              id={s.id}
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
               className={`flex flex-col ${
                 i % 2 === 1 ? "lg:flex-row-reverse" : "lg:flex-row"
-              } gap-8 items-center`}
+              } gap-8 items-center scroll-mt-24`}
             >
               <div className="flex-1">
                 <motion.img
