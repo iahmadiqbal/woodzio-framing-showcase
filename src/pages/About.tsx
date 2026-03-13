@@ -139,26 +139,40 @@ const About = () => {
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              className="relative h-80 rounded-lg overflow-hidden"
+              className="bg-card border border-border rounded-lg overflow-hidden shadow-xl"
             >
-              <img 
-                src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=800&q=80" 
-                alt="Construction team at work" 
-                className="w-full h-full object-cover"
-              />
+              <div className="relative h-56">
+                <img 
+                  src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=800&q=80" 
+                  alt="Construction team at work" 
+                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                />
+              </div>
+              <div className="p-6">
+                <p className="text-muted-foreground leading-relaxed">
+                  Our experienced team brings decades of combined expertise in wood framing. Each member is trained in the latest construction techniques and safety standards, ensuring every project meets the highest quality benchmarks.
+                </p>
+              </div>
             </motion.div>
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
-              className="relative h-80 rounded-lg overflow-hidden"
+              className="bg-card border border-border rounded-lg overflow-hidden shadow-xl"
             >
-              <img 
-                src="https://images.unsplash.com/photo-1590496793907-4d0b8e5d1d8c?w=800&q=80" 
-                alt="Professional framing crew" 
-                className="w-full h-full object-cover"
-              />
+              <div className="relative h-56">
+                <img 
+                  src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80" 
+                  alt="Professional framing crew" 
+                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                />
+              </div>
+              <div className="p-6">
+                <p className="text-muted-foreground leading-relaxed">
+                  We pride ourselves on fostering a culture of collaboration and continuous improvement. Our crew members work seamlessly together, combining their skills to deliver exceptional results on residential and commercial projects across Alberta.
+                </p>
+              </div>
             </motion.div>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
