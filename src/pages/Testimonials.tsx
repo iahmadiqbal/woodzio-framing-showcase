@@ -88,16 +88,9 @@ const Testimonials = () => {
                 transition={{ delay: i * 0.1, duration: 0.5 }}
                 className="bg-card border border-border rounded-lg p-8 hover:border-primary/50 transition-all"
               >
-                <div className="flex items-center gap-4 mb-6">
-                  <img 
-                    src={t.image} 
-                    alt={t.name} 
-                    className="w-16 h-16 rounded-full object-cover border-2 border-primary"
-                  />
-                  <div>
-                    <div className="font-heading text-lg font-semibold text-accent">{t.name}</div>
-                    <div className="text-muted-foreground text-sm">{t.role}</div>
-                  </div>
+                <div className="mb-6">
+                  <div className="font-heading text-lg font-semibold text-accent">{t.name}</div>
+                  <div className="text-muted-foreground text-sm">{t.role}</div>
                 </div>
                 <div className="flex gap-1 mb-4">
                   {Array.from({ length: t.rating }).map((_, j) => (
