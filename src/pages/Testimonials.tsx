@@ -2,6 +2,13 @@ import { motion } from "framer-motion";
 import { HiStar, HiUserCircle, HiThumbUp, HiHeart } from "react-icons/hi";
 import SectionHeading from "@/components/SectionHeading";
 import CTAButton from "@/components/CTAButton";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 
 const testimonials = [
   {
@@ -75,32 +82,43 @@ const Testimonials = () => {
         </div>
       </section>
 
-      {/* Testimonials Grid */}
+      {/* Testimonials Carousel */}
       <section className="section-dark py-20">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {testimonials.map((t, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1, duration: 0.5 }}
-                className="bg-card border border-border rounded-lg p-8 hover:border-primary/50 transition-all"
-              >
-                <div className="mb-6">
-                  <div className="font-heading text-lg font-semibold text-accent">{t.name}</div>
-                  <div className="text-muted-foreground text-sm">{t.role}</div>
-                </div>
-                <div className="flex gap-1 mb-4">
-                  {Array.from({ length: t.rating }).map((_, j) => (
-                    <HiStar key={j} className="text-accent text-lg" />
-                  ))}
-                </div>
-                <p className="text-foreground italic leading-relaxed">"{t.text}"</p>
-              </motion.div>
-            ))}
-          </div>
+        <div className="container mx-auto px-8 md:px-16">
+          <Carousel
+            opts={{
+              align: "start",
+              loop: true,
+            }}
+            className="w-full max-w-7xl mx-auto"
+          >
+            <CarouselContent className="-ml-2 md:-ml-4">
+              {testimonials.map((t, i) => (
+                <CarouselItem key={i} className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/3">
+                  <motion.div
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: i * 0.1, duration: 0.5 }}
+                    className="bg-card border border-border rounded-lg p-8 hover:border-primary/50 transition-all h-full"
+                  >
+                    <div className="mb-6">
+                      <div className="font-heading text-lg font-semibold text-accent">{t.name}</div>
+                      <div className="text-muted-foreground text-sm">{t.role}</div>
+                    </div>
+                    <div className="flex gap-1 mb-4">
+                      {Array.from({ length: t.rating }).map((_, j) => (
+                        <HiStar key={j} className="text-accent text-lg" />
+                      ))}
+                    </div>
+                    <p className="text-foreground italic leading-relaxed">"{t.text}"</p>
+                  </motion.div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious />
+            <CarouselNext />
+          </Carousel>
         </div>
       </section>
 
