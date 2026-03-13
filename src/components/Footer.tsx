@@ -5,9 +5,9 @@ const Footer = () => {
   return (
     <footer className="section-dark border-t border-border">
       <div className="container mx-auto px-4 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-10 items-start">
           <div className="md:col-span-1">
-            <img src="/logo.png" alt="Woodzio Framing Inc" className="h-24 w-auto mb-4" />
+            <img src="/logo.png" alt="Woodzio Framing Inc" className="h-20 w-auto mb-4" />
             <p className="text-muted-foreground text-sm leading-relaxed">
               Professional wood framing solutions for residential and commercial projects across Alberta.
             </p>
