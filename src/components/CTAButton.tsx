@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-
+//  this is the interface of ctabutton
 interface CTAButtonProps {
   text: string;
   to?: string;
